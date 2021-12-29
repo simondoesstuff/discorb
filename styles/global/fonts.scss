@@ -1,0 +1,53 @@
+
+:root {
+    --font-primary: "Whitney", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --font-display: "Ginto Normal", "Whitney", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --font-headline: "Ginto Nord", "Whitney", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --font-monospace: "Menlo", "Consolas", "Monaco", monospace;
+    --font-glitch: "ArchivoBlack", "Whitney", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --font-cursive: "Reenie Beanie", "Comic Sans MS", cursive, sans-serif;
+}
+
+
+
+@font-face {
+    font-family: "Whitney";
+    src: url("../../public/fonts/WhitneyBookRegular.woff") format("woff");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: "Whitney";
+    src: url("../../public/fonts/WhitneyMediumRegular.woff") format("woff");
+    font-weight: 500
+}
+
+@font-face {
+    font-family: "Whitney";
+    src: url("../../public/fonts/WhitneySemiboldRegular.woff") format("woff");
+    font-weight: 600
+}
+
+
+
+@font-face {
+    font-family: "Ginto Normal";
+    src: url("../../public/fonts/GintoNormal.woff2") format("woff2")
+}
+
+@font-face {
+    font-family: "Ginto Nord";
+    src: url("../../public/fonts/GintoNord.woff2") format("woff2")
+}
+
+
+
+@font-face {
+    font-family: "ArchivoBlack";
+    src: url("../../public/fonts/ArchivoBlack.ttf") format("ttf")
+}
+
+@font-face {
+    font-family: "Reenie Beanie";
+    src: url("../../public/fonts/ReenieBeanie-Regular.ttf") format("ttf")
+}
