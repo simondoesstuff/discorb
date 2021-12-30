@@ -40,7 +40,7 @@ function Header() {
 function Footer() {
   return (
     <footer className={s.footer}>
-      <Container fluid className="bg-dark text-light">
+      <Container fluid className={"bg-dark text-light " + s.footerContainer}>
         <Row>
           <Col className={s.footerTitle}>
             Imagine A Place
