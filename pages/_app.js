@@ -1,18 +1,15 @@
 import '@/styles/global/styles.scss'
-import {useEffect} from "react";
-import NavFooterLayout from "../components/layouts/NavFooterLayout";
+import NavFooterLayout from "@/components/layouts/NavFooterLayout/NavFooterLayout";
+import {ThemeProvider} from "@mui/material";
+import theme from "@/components/theming/rootTheme";
 
 function MyApp({ Component, pageProps }) {
-  // load the JS for bootstrap
-  // (the css is loaded through the global style)
-  useEffect(() => {
-    import("bootstrap/dist/js/bootstrap");
-  }, []);
-
   return (
-    <NavFooterLayout>
-      <Component {...pageProps} />
-    </NavFooterLayout>
+    <ThemeProvider theme={theme}>
+      <NavFooterLayout>
+        <Component {...pageProps} />
+      </NavFooterLayout>
+    </ThemeProvider>
   )
 }
 
