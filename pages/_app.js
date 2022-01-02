@@ -1,14 +1,14 @@
 import '@/styles/global/styles.scss'
-import NavFooterLayout from "@/components/layouts/NavFooterLayout/NavFooterLayout";
+import HeaderFooterLayout from "@/components/layouts/NavFooterLayout/HeaderFooterLayout";
 import {ThemeProvider} from "@mui/material";
 import theme from "@/components/theming/rootTheme";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
-      <NavFooterLayout>
+      <HeaderFooterLayout>
         <Component {...pageProps} />
-      </NavFooterLayout>
+      </HeaderFooterLayout>
     </ThemeProvider>
   )
 }
