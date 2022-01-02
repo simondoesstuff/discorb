@@ -131,7 +131,7 @@ function FooterLinks() {
 
         {
           links
-            .filter((e, i) => i !== 0)
+            .slice(1)
             .map((e, i) => (
               <Typography
                 key={i}
