@@ -1,28 +1,48 @@
 import React from 'react';
-import {AppBar, Button, Container, Toolbar, Typography} from "@mui/material";
+import {AppBar, Box, Button, Container, Stack, Toolbar, Typography} from "@mui/material";
+import {DiscordLogoWithName} from "@/components/DiscordLogo";
+import TextLink from "@/components/TextLink";
 
-function Header() {
+function Header({children}) {
   return (
     <header>
-      <AppBar
-        elevation={0}
+      {/*Banner*/}
+      <box
         sx={{
-          position: 'static'
+          zIndex: -10,
+          position: 'absolute'
         }}
       >
-        <Toolbar>
-            <Typography color="textSecondary">
-              D I S C O R B
+        {children}
+      </box>
 
-              Download
-              Nitro
-              Safety
-              Support
-              Blog
-              Careers
+      <Toolbar>
+        <Container sx={{padding: 0, paddingTop: '1.5rem'}}>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            width={'100%'}
+          >
+            {/*Discord Logo*/}
+            <DiscordLogoWithName/>
 
-            </Typography>
+            {/*Page Links*/}
+            <Stack
+              direction="row"
+              gap={4}
+            >
+              {
+                ['Download', 'Nitro', 'Safety', 'Support', 'Blog', 'Careers']
+                  .map((e, i) => (
+                    <TextLink key={i}>
+                      {e}
+                    </TextLink>
+                  ))
+              }
+            </Stack>
 
+            {/*Login Button*/}
             <Button
               variant='contained'
               elevation={0}
@@ -33,8 +53,9 @@ function Header() {
             >
               Login
             </Button>
-        </Toolbar>
-      </AppBar>
+          </Stack>
+        </Container>
+      </Toolbar>
     </header>
   )
 }

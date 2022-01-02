@@ -7,6 +7,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import TextLink from "@/components/TextLink";
 
 function Footer() {
   return (
@@ -133,18 +134,9 @@ function FooterLinks() {
           links
             .slice(1)
             .map((e, i) => (
-              <Typography
-                key={i}
-                color={theme => theme.palette.text.secondary}
-                variant={'subtitle1'}
-                sx={{
-                  '&:hover': {
-                    'text-decoration': 'underline'
-                  }
-                }}
-              >
+              <TextLink key={i}>
                 {e}
-              </Typography>
+              </TextLink>
             ))
         }
       </>
