@@ -107,16 +107,6 @@ function Footer() {
             <DiscordLogoWithName/>
 
             {/*Sign Up Button*/}
-            {/*
-         todo fix mui button padding
-
-         the login button has a default size
-         which is why the padding looks okay.
-         but on the sign up button, the text
-         scrapes the edge so the default
-         button padding needs to increase
-         from ~8 to ~16  px
-            */}
             <DiscordButton variant='blue'>
               Sign Up
             </DiscordButton>

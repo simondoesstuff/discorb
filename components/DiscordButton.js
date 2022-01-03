@@ -78,11 +78,13 @@ function DiscordButton({
 
   return (
     <Button
+      variant='contained'
       disableRipple
       disableElevation
+      elevation={0}
 
       sx={[
-        ...sxFrom(theme, variant),
+        ...sxFrom(theme, 'blue'),
 
         // You cannot spread `sx` directly because `SxProps` (typeof sx) can be an array.
         ...(Array.isArray(sx) ? sx : [sx]),
