@@ -1,18 +1,19 @@
 import {createTheme} from "@mui/material";
 
-const WhitneyBook = "/fonts/WhitneyBookRegular.woff";
-const WhitneyMedium = "/fonts/WhitneyMediumRegular.woff";
-const WhitneySemibold = "/fonts/WhitneySemiboldRegular.woff";
-const GintoNormal = "/fonts/GintoNormal.woff2";
-const GintoNord = "/fonts/GintoNord.woff2";
-const ArchivoBlack = "/fonts/ArchivoBlack.ttf";
-const ReenieBeanie = "/fonts/ReenieBeanie-Regular.ttf";
+/*
 
-// colors pulled from the discord website
+SPECIFY DISCORD COLORS
+
+ */
+
 let theme = createTheme({
   discordPalette: {
     brand: '#5865f2',
+    lighterBrand: '#7983f5',
+    black: '#000000',
     gray: '#23272a',
+    lighterGray: '#36393f',
+    white: '#ffffff',
     offWhite: '#f6f6f6',
     red: '#de2761',
     green: '#43b581'
@@ -48,7 +49,20 @@ theme = createTheme(theme, {
   },
 });
 
-// fonts pulled from the discord website
+/*
+
+SPECIFY DISCORD FONTS
+
+ */
+
+// for use in importing fonts without fonts.scss
+// const WhitneyBook = "/fonts/WhitneyBookRegular.woff";
+// const WhitneyMedium = "/fonts/WhitneyMediumRegular.woff";
+// const WhitneySemibold = "/fonts/WhitneySemiboldRegular.woff";
+// const GintoNormal = "/fonts/GintoNormal.woff2";
+// const GintoNord = "/fonts/GintoNord.woff2";
+// const ArchivoBlack = "/fonts/ArchivoBlack.ttf";
+// const ReenieBeanie = "/fonts/ReenieBeanie-Regular.ttf";
 
 theme = createTheme(theme, {
   discordFonts: {
@@ -63,19 +77,19 @@ theme = createTheme(theme, {
 
 function createFontFamily(fontFamily) {
   return {
-    h1: { fontFamily },
-    h2: { fontFamily },
-    h3: { fontFamily },
-    h4: { fontFamily },
-    h5: { fontFamily },
-    h6: { fontFamily },
-    subtitle1: { fontFamily },
-    subtitle2: { fontFamily },
-    body1: { fontFamily },
-    body2: { fontFamily },
-    button: { fontFamily },
-    caption: { fontFamily },
-    overline: { fontFamily },
+    h1: {fontFamily},
+    h2: {fontFamily},
+    h3: {fontFamily},
+    h4: {fontFamily},
+    h5: {fontFamily},
+    h6: {fontFamily},
+    subtitle1: {fontFamily},
+    subtitle2: {fontFamily},
+    body1: {fontFamily},
+    body2: {fontFamily},
+    button: {fontFamily},
+    caption: {fontFamily},
+    overline: {fontFamily},
   };
 }
 
@@ -84,6 +98,22 @@ theme = createTheme(theme, {
     fontFamily: theme.discordFonts.primary,
     ...createFontFamily(theme.discordFonts.primary)
   }
+});
+
+/*
+
+OVERRIDE MUI COMPONENTS
+
+ */
+
+theme = createTheme(theme, {
+  components: {
+    MuiContainer: {
+      defaultProps: {
+        disableGutters: true
+      }
+    },
+  },
 });
 
 export default theme
