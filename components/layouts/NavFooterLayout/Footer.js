@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Button, Container, Divider, Grid, Link, Stack, Typography} from "@mui/material";
+import {Box, Container, Divider, Grid, Link, Stack, Typography} from "@mui/material";
 import Image from 'next/image';
 import EnglishLangImg from '@/public/discordIcons/englishLangSymbol.png';
 import {DiscordLogoWithName} from "@/components/DiscordLogo";
@@ -7,7 +7,6 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import TextLink from "@/components/TextLink";
 import DiscordButton from "@/components/DiscordButton";
 
 function Footer() {
