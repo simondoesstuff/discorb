@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Button, Container, Divider, Grid, Stack, Typography} from "@mui/material";
+import {Box, Button, Container, Divider, Grid, Link, Stack, Typography} from "@mui/material";
 import Image from 'next/image';
 import EnglishLangImg from '@/public/discordIcons/englishLangSymbol.png';
 import {DiscordLogoWithName} from "@/components/DiscordLogo";
@@ -8,19 +8,23 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TextLink from "@/components/TextLink";
+import DiscordButton from "@/components/DiscordButton";
 
 function Footer() {
   return (
     <footer>
       <Box
         sx={{
-          padding: '5rem 1.5rem 5rem 1.5rem',
+          p: '5rem 0 5rem 0',
           bgcolor: theme => theme.discordPalette.gray
         }}
       >
 
         {/*Top Half Stack*/}
-        <Container sx={{padding: 0}}>
+        <Container
+          // todo temp
+          // sx={{overflow: 'hidden'}}
+        >
           <Stack
             alignItems={'flex-start'}
             justifyContent={'flex-start'}
@@ -30,7 +34,7 @@ function Footer() {
             }}
           >
             {/*IMAGINE A PLACE - Block*/}
-            <Container sx={{padding: 0}}>
+            <Container>
               <Typography
                 color={theme => theme.discordPalette.brand}
                 fontFamily={theme => theme.discordFonts.headline}
@@ -79,7 +83,9 @@ function Footer() {
             </Container>
 
             {/*Footer Links*/}
-            <FooterLinks/>
+            <Container>
+              <FooterLinks/>
+            </Container>
           </Stack>
 
           {/*Divider*/}
@@ -97,12 +103,24 @@ function Footer() {
             justifyContent="space-between"
             alignItems="center"
           >
+
+            {/*Discord Logo*/}
             <DiscordLogoWithName/>
-            <Button
-              variant={'contained'}
-            >
+
+            {/*Sign Up Button*/}
+            {/*
+         todo fix mui button padding
+
+         the login button has a default size
+         which is why the padding looks okay.
+         but on the sign up button, the text
+         scrapes the edge so the default
+         button padding needs to increase
+         from ~8 to ~16  px
+            */}
+            <DiscordButton variant='blue'>
               Sign Up
-            </Button>
+            </DiscordButton>
           </Stack>
 
         </Container>
@@ -111,15 +129,18 @@ function Footer() {
   )
 }
 
-const footerLinks = [
-  ['Product', 'Download', 'Nitro', 'Status'],
-  ['Company', 'About', 'Jobs', 'Branding', 'Newsroom'],
-  ['Resources', 'College', 'Support', 'Safety', 'Blog', 'Feedback', 'Developers', 'StreamKit'],
-  ['Policies', 'Terms', 'Privacy', 'Cookie Settings', 'Guidelines', 'Acknowledgements', 'Licenses', 'Moderation'],
-]
-
+// todo "Acknowledgements" overflows the grid. Try switching to stack?
 function FooterLinks() {
+  const footerLinks = [
+    ['Product', 'Download', 'Nitro', 'Status'],
+    ['Company', 'About', 'Jobs', 'Branding', 'Newsroom'],
+    ['Resources', 'College', 'Support', 'Safety', 'Blog', 'Feedback', 'Developers', 'StreamKit'],
+    ['Policies', 'Terms', 'Privacy', 'Cookie Settings', 'Guidelines', 'Acknowledgements', 'Licenses', 'Moderation'],
+  ]
+
+  // todo their blue texts appear weirdly bluer + white links less crisp -- rendering optimization?
   function LinkStack({links}) {
+    // the first element becomes the title
     const title = (
       <Typography color={theme => theme.discordPalette.brand}>
         {links[0]}
@@ -129,14 +150,19 @@ function FooterLinks() {
     return (
       <>
         {title}
-
         {
           links
-            .slice(1)
+            .slice(1) // skip the first element
             .map((e, i) => (
-              <TextLink key={i}>
-                {e}
-              </TextLink>
+              <Link
+                key={i}
+                color={theme => theme.palette.text.secondary}
+                underline='hover'
+              >
+                <Typography>
+                  {e}
+                </Typography>
+              </Link>
             ))
         }
       </>
