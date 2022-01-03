@@ -15,7 +15,10 @@ function Footer() {
       <Box
         sx={{
           p: '5rem 0 5rem 0',
-          bgcolor: theme => theme.discordPalette.gray
+          bgcolor: theme => theme.discordPalette.gray,
+          width: '100%',
+          position: 'absolute',
+          bottom: 0
         }}
       >
 
