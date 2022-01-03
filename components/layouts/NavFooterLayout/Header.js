@@ -1,23 +1,29 @@
 import React from 'react';
-import {AppBar, Box, Button, Container, Stack, Toolbar, Typography} from "@mui/material";
+import {AppBar, Container, Link, Stack, Toolbar, Typography} from "@mui/material";
 import {DiscordLogoWithName} from "@/components/DiscordLogo";
-import TextLink from "@/components/TextLink";
+import DiscordButton from "@/components/DiscordButton";
+import NextLink from 'next/link'
 
-function Header({children}) {
+function Header() {
   return (
     <header>
-      {/*Banner*/}
-      <box
-        sx={{
-          zIndex: -10,
-          position: 'absolute'
-        }}
-      >
-        {children}
-      </box>
-
       <Toolbar>
-        <Container sx={{padding: 0, paddingTop: '1.5rem'}}>
+        {/*
+        This AppBar will only show when the page
+        is without a banner. Eg: Error404 Page.
+        Otherwise, the banner will cover it up.
+        */}
+        <AppBar
+          sx={{
+            position: 'absolute',
+            zIndex: -10,
+            bgcolor: theme => theme.palette.secondary.main,
+            width: '100%',
+            height: '100%'
+          }}
+        />
+
+        <Container sx={{p: '1.5rem 0'}}>
           <Stack
             direction="row"
             justifyContent="space-between"
@@ -30,29 +36,34 @@ function Header({children}) {
             {/*Page Links*/}
             <Stack
               direction="row"
-              gap={4}
+              gap={5}
             >
               {
+                // the values in this array refer to page routes
                 ['Download', 'Nitro', 'Safety', 'Support', 'Blog', 'Careers']
                   .map((e, i) => (
-                    <TextLink key={i}>
-                      {e}
-                    </TextLink>
+                    <NextLink
+                      key={i}
+                      href={`/${e}`}
+                      passHref
+                    >
+                      <Link
+                        color={theme => theme.palette.text.secondary}
+                        underline='hover'
+                      >
+                        <Typography variant={'subtitle1'}>
+                          {e}
+                        </Typography>
+                      </Link>
+                    </NextLink>
                   ))
               }
             </Stack>
 
             {/*Login Button*/}
-            <Button
-              variant='contained'
-              elevation={0}
-              sx={{
-                bgcolor: '#ffffffff',
-                color: theme => theme.discordPalette.brand
-              }}
-            >
+            <DiscordButton variant='white'>
               Login
-            </Button>
+            </DiscordButton>
           </Stack>
         </Container>
       </Toolbar>
