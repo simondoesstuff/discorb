@@ -1,22 +1,21 @@
 
 @import "fonts";
 
+// todo how do I remove this?
 html, body {
   padding: 0;
   margin: 0;
-  //color: $primary;
 
-  //font-family: $font-primary;
-  text-rendering: optimizeLegibility;
-  font-weight: 400;
-  line-height: 24;
+//  text-rendering: optimizeLegibility;
+//  font-weight: 400;
+//  line-height: 24;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
+//a {
+//  color: inherit;
+//  text-decoration: none;
+//}
+//
+//* {
+//  box-sizing: border-box;
+//}
