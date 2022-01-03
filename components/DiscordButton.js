@@ -84,7 +84,7 @@ function DiscordButton({
       elevation={0}
 
       sx={[
-        ...sxFrom(theme, 'blue'),
+        ...sxFrom(theme, variant),
 
         // You cannot spread `sx` directly because `SxProps` (typeof sx) can be an array.
         ...(Array.isArray(sx) ? sx : [sx]),
