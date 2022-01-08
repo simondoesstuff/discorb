@@ -1,129 +1,99 @@
 import React from 'react';
+import HomeHeadlineShowcase from "@/components/pageHeadlineShowcases/HomeHeadlineShowcase";
+import FeatureCard from "@/components/FeatureCard";
 import {Box, Container, Stack, Typography} from "@mui/material";
-import DownloadIcon from '@mui/icons-material/Download';
-import DiscordButton from "@/components/DiscordButton";
-import Image from 'next/image'
-import waveForeground from '@/public/discordBanners/heroContainer/waveForeground.svg'
+import Image from 'next/image';
 
+import svgInviteOnlyPlace from "@/public/pageAssets/homePage/featureCardSvgs/inviteOnlyPlace.svg";
+import svgHangOutEasy from "@/public/pageAssets/homePage/featureCardSvgs/hangOutEasy.svg";
+import svgFewToFandom from "@/public/pageAssets/homePage/featureCardSvgs/fewToFandom.svg";
+import svgReliableTech from "@/public/pageAssets/homePage/reliableTech.svg";
 
-// todo nitro video:
-/*
-
-<video
-  autoPlay
-  loop
-  style={{
-    width: '100%',
-    zIndex: -1,
-    top: 0,
-    position: 'absolute'
-  }}
->
-  <source src="/discordBanners/NitroAnimatedBanner.mp4"/>
-</video>
-
-*/
-
-
-function Home(props) {
+function HomePage(props) {
   return (
     <>
-      {/*Banner*/}
-      <Banner/>
+      <HomeHeadlineShowcase/>
 
-      <Container
-        sx={{
-          margin: '7.5rem auto',
-          p: '0 14rem'
-        }}
-      >
-        {/*Headline + Description*/}
-        <HeadlineAndDescription/>
+      {/*   Feature Section - 3 cards + "Reliable Tech" section   */}
 
-        {/*Buttons*/}
-        <Buttons/>
-      </Container>
+      <FeatureCard
+        title="Create an invite-only place where you belong"
+        description="Discord servers are organized into topic-based
+        channels where you can collaborate, share, and just talk
+        about your day without clogging up a group chat."
+        imageSrc={svgInviteOnlyPlace}
+      />
+
+      <FeatureCard
+        title="Where hanging out is easy"
+        description="Grab a seat in a voice channel when you’re free.
+        Friends in your server can see you’re around and instantly pop
+        in to talk without having to call."
+        imageSrc={svgHangOutEasy}
+        variant="left"
+      />
+
+      <FeatureCard
+        title="From few to a fandom"
+        description="Get any community running with moderation tools and
+        custom member access. Give members special powers, set up private
+        channels, and more."
+        imageSrc={svgFewToFandom}
+      />
+
+      <ReliableTechCard/>
     </>
   );
 }
 
-function HeadlineAndDescription() {
+function ReliableTechCard() {
   return (
-    <>
-      {/*Headline*/}
-      <Typography
-        color={'textSecondary'}
-        variant={'h2'}
-        fontFamily={theme => theme.discordFonts.headline}
-        align='center'
-      >
-        IMAGINE A PLACE...
-      </Typography>
-
-      {/*Description*/}
-      {/*todo discord.com clamp()s this font size*/}
-      <Typography
-        color={'textSecondary'}
-        align='center'
-        p={'2.5rem 7.5rem'}
-      >
-        ...where you can belong to a school club, a gaming group,
-        or a worldwide art community. Where just you and a handful
-        of friends can spend time together. A place that makes it
-        easy to talk every day and hang out more often.
-      </Typography>
-    </>
-  )
-}
-
-function Buttons() {
-  return (
-    <Stack
-      direction={'row'}
-      justifyContent={'center'}
-      spacing={3}
+    <Box
+      sx={{
+        bgcolor: theme => theme.discordPalette.offWhite,
+        color: theme => theme.discordPalette.gray
+      }}
     >
-      <DiscordButton variant='white'>
-        <DownloadIcon sx={{marginRight: 1}}/>
-        <Typography variant='h6'>
-          Download for Windows
-        </Typography>
-      </DiscordButton>
-
-      <DiscordButton variant='black'>
-        <Typography variant='h6'>
-          Open Discord in your browser
-        </Typography>
-      </DiscordButton>
-    </Stack>
-  )
-}
-
-function Banner() {
-  return (
-    <>
-      <Box
+      <Container
+        p={'7.5rem 2.5rem'}
         sx={{
-          zIndex: -1,
-          bgcolor: '#404eed',
-          top: 0,
-          position: 'absolute',
-          overflow: 'hidden',
-          width: '100%',
+          textAlign: 'center'
         }}
       >
+
+        {/*'RELIABLE TECH'... title*/}
+        <Typography
+          variant='h3'
+          fontFamily={theme => theme.discordFonts.headline}
+        >
+          RELIABLE TECH FOR STAYING CLOSE
+        </Typography>
+
+        {/*Subtitle*/}
+        <Typography
+          variant='subtitle1'
+          marginTop={1.5}
+        >
+          Low-latency voice and video feels like you’re
+          in the same room. Wave hello over video, watch
+          friends stream their games, or gather up and
+          have a drawing session with screen share.
+        </Typography>
+
+        {/*Graphic Image*/}
         <Image
-          src={waveForeground}
-          layout='fixed'
-          sx={{
-            display: 'block',
-            position: 'absolute',
-            left: '50%'
-          }}
+          src={svgReliableTech}
         />
-      </Box>
-    </>
+
+        {/*Sparkle Text + Button*/}
+        <SparkleDownload/>
+      </Container>
+    </Box>
   )
 }
 
-export default Home;
+function SparkleDownload() {
+  return 'Sparkles'
+}
+
+export default HomePage;

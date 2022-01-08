@@ -9,10 +9,10 @@ SPECIFY DISCORD COLORS
 let theme = createTheme({
   discordPalette: {
     brand: '#5865f2',
-    lighterBrand: '#7983f5',
+    lighterBrand: '#7983f5',  // used in button
     black: '#000000',
     gray: '#23272a',
-    lighterGray: '#36393f',
+    lighterGray: '#36393f', // used in button
     white: '#ffffff',
     offWhite: '#f6f6f6',
     red: '#de2761',
