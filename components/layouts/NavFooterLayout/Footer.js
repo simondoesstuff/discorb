@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Container, Divider, Grid, Link, Stack, Typography} from "@mui/material";
 import Image from 'next/image';
-import EnglishLangImg from '@/public/discordIcons/englishLangSymbol.png';
+import EnglishLangImg from '@/public/customIcons/englishLangSymbol.png';
 import {DiscordLogoWithName} from "@/components/DiscordLogo";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -16,9 +16,7 @@ function Footer() {
         sx={{
           p: '5rem 0 5rem 0',
           bgcolor: theme => theme.discordPalette.gray,
-          width: '100%',
-          position: 'absolute',
-          bottom: 0
+          width: '100%'
         }}
       >
 
