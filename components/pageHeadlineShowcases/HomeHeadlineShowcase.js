@@ -80,6 +80,7 @@ function Buttons() {
       justifyContent={'center'}
       spacing={3}
     >
+      {/*Download for Windows Button*/}
       <DiscordButton variant='white'>
         <DownloadIcon sx={{marginRight: 1}}/>
         <Typography variant='h6'>
@@ -87,6 +88,7 @@ function Buttons() {
         </Typography>
       </DiscordButton>
 
+      {/*Open in Browser Button*/}
       <DiscordButton variant='black'>
         <Typography variant='h6'>
           Open Discord in your browser

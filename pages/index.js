@@ -2,12 +2,15 @@ import React from 'react';
 import HomeHeadlineShowcase from "@/components/pageHeadlineShowcases/HomeHeadlineShowcase";
 import FeatureCard from "@/components/FeatureCard";
 import {Box, Container, Stack, Typography} from "@mui/material";
+import DiscordButton from "@/components/DiscordButton";
+import DownloadIcon from "@mui/icons-material/Download";
 import Image from 'next/image';
 
 import svgInviteOnlyPlace from "@/public/pageAssets/homePage/featureCardSvgs/inviteOnlyPlace.svg";
 import svgHangOutEasy from "@/public/pageAssets/homePage/featureCardSvgs/hangOutEasy.svg";
 import svgFewToFandom from "@/public/pageAssets/homePage/featureCardSvgs/fewToFandom.svg";
 import svgReliableTech from "@/public/pageAssets/homePage/reliableTech.svg";
+import svgSparkles from "@/public/pageAssets/homePage/sparkles.svg";
 
 function HomePage(props) {
   return (
@@ -55,8 +58,8 @@ function ReliableTechCard() {
       }}
     >
       <Container
-        p={'7.5rem 2.5rem'}
         sx={{
+          p: '7.5rem 0',
           textAlign: 'center'
         }}
       >
@@ -81,19 +84,65 @@ function ReliableTechCard() {
         </Typography>
 
         {/*Graphic Image*/}
-        <Image
-          src={svgReliableTech}
-        />
+        <Box marginTop={1}>
+          <Image src={svgReliableTech}/>
+        </Box>
+
 
         {/*Sparkle Text + Button*/}
-        <SparkleDownload/>
+        <Box marginTop={10}>
+          <SparkleDownload/>
+        </Box>
       </Container>
     </Box>
   )
 }
 
 function SparkleDownload() {
-  return 'Sparkles'
+  return (
+    <>
+      {/*Sparkle Text*/}
+      <Box
+        sx={{
+          position: 'relative',
+          paddingTop: '30px'
+        }}
+      >
+        <Container
+          sx={{
+            // the sparkles are overlayed by
+            // 'absolute'ly raising them
+            // above the text
+            position: 'absolute',
+            top: 0
+          }}
+        >
+          <Image src={svgSparkles}/>
+        </Container>
+
+        <Typography
+          fontSize='2rem'
+          fontFamily={theme => theme.discordFonts.display}
+        >
+          Ready to start your journey?
+        </Typography>
+      </Box>
+
+
+      {/*Download for Windows Button*/}
+      <DiscordButton
+        variant='blue'
+        sx={{
+          marginTop: 5
+        }}
+      >
+        <DownloadIcon sx={{marginRight: 1}}/>
+        <Typography variant='h6'>
+          Download for Windows
+        </Typography>
+      </DiscordButton>
+    </>
+  )
 }
 
 export default HomePage;
