@@ -1,8 +1,8 @@
 import React from 'react';
 import {Box, Link as MuiLink} from "@mui/material";
 import NextLink from 'next/link'
-import DiscordLogoWithTextSvg from '@/public/discordSvgs/DiscordLogoWithText.svg'
-import DiscordLogoSvg from '@/public/discordSvgs/DiscordSymbol.svg'
+import DiscordLogoWithTextSvg from '@/public/logo/DiscordLogoWithText.svg'
+import DiscordLogoSvg from '@/public/logo/DiscordSymbol.svg'
 import Image from 'next/image'
 
 function LogoBox({src, height, width, black}) {
