@@ -96,14 +96,69 @@ function createFontFamily(fontFamily) {
 theme = createTheme(theme, {
   typography: {
     fontFamily: theme.discordFonts.primary,
-    ...createFontFamily(theme.discordFonts.primary)
+    ...createFontFamily(theme.discordFonts.primary), // changes every default font family
+  }
+});
+
+/*
+
+OVERRIDE TYPOGRAPHY
+
+hooking into all font sizes
+
+ */
+
+theme = createTheme(theme, {
+  typography: {
+    h1: {
+      fontSize: 'clamp(2.625rem, 1.2857rem + 3.5714vw, 4rem)'
+    },
+    h2: {
+      fontSize: '3rem'
+      // fontSize: 'clamp(1.5rem, 0.9643rem + 1.4286vw, 2.25rem)'
+    },
+    h3: {
+      fontSize: '2rem',
+      // fontSize: '2.25rem'
+    },
+    h4: {
+      fontSize: '1.75rem'
+    },
+    h5: {
+      fontSize: '1.5rem'
+    },
+    h6: {
+      fontSize: '1.25rem'
+    },
+    body1: {
+      fontSize: '1rem'
+    },
+    body2: {
+      fontSize: '0.875rem'
+    },
+    button: {
+      fontSize: '0.875rem'
+    },
+    caption: {
+      fontSize: '0.75rem'
+    },
+    subtitle1: {
+      fontSize: '1.125rem'
+      // fontSize: '1rem'
+    },
+    subtitle2: {
+      fontSize: '0.875rem'
+    },
+    overline: {
+      fontSize: '0.75rem'
+    }
   }
 });
 
 /*
 
 OVERRIDE MUI COMPONENTS
-        // todo button padding needs to be adjusted
+        // todo button padding needs to be adjusted -- make it wider on 'sm' screens
 
  */
 

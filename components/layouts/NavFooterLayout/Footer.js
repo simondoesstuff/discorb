@@ -63,7 +63,7 @@ function Footer() {
                   width={24}
                   height={16}
                 />
-                <Typography color={'textSecondary'} fontSize={14}>
+                <Typography variant='subtitle2' color={'textSecondary'}>
                   English, USA
                 </Typography>
               </Stack>

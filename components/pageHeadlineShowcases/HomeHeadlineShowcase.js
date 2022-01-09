@@ -103,20 +103,21 @@ function Banner() {
     <>
       <Box
         sx={{
+          bgcolor: '#404eed',
           zIndex: -1,
           top: 0,
-          position: 'absolute'
+          position: 'absolute',
+          overflow: 'hidden',
+          width: '99vw', // placeholder
+          minHeight: '626px'  // placeholder
         }}
       >
         <Box
           sx={{
-            bgcolor: '#404eed',
             position: 'relative',
-            overflow: 'hidden',
-            width: '100vw', // placeholder
-            minHeight: '626px'  // placeholder
           }}
         >
+
           {/*Wave Foreground*/}
           {/*<Image*/}
           {/*  src={waveForeground}*/}
