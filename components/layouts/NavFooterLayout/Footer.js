@@ -25,7 +25,6 @@ export default function Footer() {
 
         {/*Divider*/}
         <Divider
-          variant={'middle'}
           sx={{
             marginTop: '2rem',
             marginBottom: '2rem'
