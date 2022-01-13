@@ -69,7 +69,7 @@ function Header() {
           Only renders on small screens
         */}
           {onSmallScreen && (
-            <MenuButton/>
+            <DrawerButton/>
           )}
         </div>
       </Stack>
@@ -85,11 +85,12 @@ function LoginButton() {
   )
 }
 
-function MenuButton() {
+function DrawerButton() {
   const [open, setOpen] = useState(false);
 
   return (
     <>
+      {/*Menu Stack Button*/}
       <Button>
         <MenuIcon
           fontSize="large"
@@ -100,18 +101,21 @@ function MenuButton() {
         />
       </Button>
 
+      {/*Drawer
+          Dyanmically renders with 'open'
+      */}
       <Drawer
         anchor='right'
         open={open}
         onClose={() => setOpen(false)}
       >
-        <DrawerMenu/>
+        <DrawerMenu onClose={() => setOpen(false)}/>
       </Drawer>
     </>
   )
 }
 
-function DrawerMenu() {
+function DrawerMenu({onClose}) {
   return (
     <Box p={3} width={250}>
       <Stack
@@ -127,7 +131,7 @@ function DrawerMenu() {
           <DiscordLogoWithName black/>
 
           {/*Close Button*/}
-          <Button>
+          <Button onClick={onClose}>
             <CloseIcon fontSize='medium' color={'secondary'}/>
           </Button>
         </Stack>
