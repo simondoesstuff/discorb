@@ -9,117 +9,106 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import DiscordButton from "@/components/DiscordButton";
 
-function Footer() {
+export default function Footer() {
   return (
-    <footer>
-      <Box
-        sx={{
-          p: '5rem 0 5rem 0',
-          bgcolor: theme => theme.discordPalette.gray,
-          width: '100%'
-        }}
-      >
+    <Box
+      sx={{
+        p: '5rem 0 5rem 0',
+        bgcolor: theme => theme.discordPalette.gray,
+        width: '100%'
+      }}
+    >
+      <Container sx={{p: "0 40px"}}>
 
         {/*Top Half Stack*/}
-        <Container
-          // todo temp
-          // sx={{overflow: 'hidden'}}
-        >
-          <Stack
-            alignItems={'flex-start'}
-            justifyContent={'flex-start'}
-            direction={{
-              'xs': 'column',
-              'sm': 'row'
-            }}
-          >
-            {/*IMAGINE A PLACE - Block*/}
-            <Container>
-              <Typography
-                color={theme => theme.discordPalette.brand}
-                fontFamily={theme => theme.discordFonts.headline}
-                variant={'h4'}
-                lineHeight={'95%'}
-                marginBottom={2}
-                width={{
-                  'xs': '100%',
-                  'sm': '18rem'
-                }}
-              >
-                IMAGINE A PLACE
-              </Typography>
+        <TopHalf/>
 
-              {/*English, USA + Symbol Stack*/}
-              <Stack
-                direction={'row'}
-                alignItems={'center'}
-                justifyContent={'flex-start'}
-                spacing={1}
-                marginBottom={2}
-              >
-                <Image
-                  src={EnglishLangImg}
-                  alt='USA'
-                  width={24}
-                  height={16}
-                />
-                <Typography variant='subtitle2' color={'textSecondary'}>
-                  English, USA
-                </Typography>
-              </Stack>
+        {/*Divider*/}
+        <Divider
+          variant={'middle'}
+          sx={{
+            marginTop: '2rem',
+            marginBottom: '2rem'
+          }}
+        />
 
-              {/*Social Links*/}
-              <Stack
-                direction={'row'}
-                justifyContent={'flex-start'}
-                spacing={2}
-                marginBottom={6}
-              >
-                <TwitterIcon sx={{color: theme => theme.palette.text.secondary}}/>
-                <InstagramIcon sx={{color: theme => theme.palette.text.secondary}}/>
-                <FacebookIcon sx={{color: theme => theme.palette.text.secondary}}/>
-                <YouTubeIcon sx={{color: theme => theme.palette.text.secondary}}/>
-              </Stack>
-            </Container>
-
-            {/*Footer Links*/}
-            <Container>
-              <FooterLinks/>
-            </Container>
-          </Stack>
-
-          {/*Divider*/}
-          <Divider
-            variant={'middle'}
-            sx={{
-              marginTop: '2rem',
-              marginBottom: '2rem'
-            }}
-          />
-
-          {/*Bottom Half Stack*/}
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-
-            {/*Discord Logo*/}
-            <DiscordLogoWithName/>
-
-            {/*Sign Up Button*/}
-            <DiscordButton variant='blue'>
-              Sign Up
-            </DiscordButton>
-          </Stack>
-
-        </Container>
-      </Box>
-    </footer>
+        {/*Bottom Half Stack*/}
+        <BottomHalf/>
+      </Container>
+    </Box>
   )
 }
 
-// todo "Acknowledgements" overflows the grid. Try switching to stack?
+function TopHalf() {
+  return (
+    <Grid
+      container
+      direction='row'
+      spacing={2}
+      justifyContent={'space-between'}
+      // direction={{
+      //   'xs': 'column',
+      //   'sm': 'row'
+      // }}
+    >
+
+      {/*IMAGINE A PLACE - Block*/}
+      <Grid item xs={12} sm={3}>
+        <Typography
+          color={theme => theme.discordPalette.brand}
+          fontFamily={theme => theme.discordFonts.headline}
+          variant={'h4'}
+          lineHeight={'95%'}
+          marginBottom={2}
+          width={{
+            'xs': '100%',
+            'sm': '18rem'
+          }}
+        >
+          IMAGINE A PLACE
+        </Typography>
+
+        {/*English, USA + Symbol Stack*/}
+        <Stack
+          direction={'row'}
+          alignItems={'center'}
+          justifyContent={'flex-start'}
+          spacing={1}
+          marginBottom={2}
+        >
+          <Image
+            src={EnglishLangImg}
+            alt='USA'
+            width={24}
+            height={16}
+          />
+          <Typography variant='subtitle2' color={'textSecondary'}>
+            English, USA
+          </Typography>
+        </Stack>
+
+        {/*Social Links*/}
+        <Stack
+          direction={'row'}
+          justifyContent={'flex-start'}
+          spacing={2}
+          marginBottom={6}
+        >
+          <TwitterIcon sx={{color: theme => theme.palette.text.secondary}}/>
+          <InstagramIcon sx={{color: theme => theme.palette.text.secondary}}/>
+          <FacebookIcon sx={{color: theme => theme.palette.text.secondary}}/>
+          <YouTubeIcon sx={{color: theme => theme.palette.text.secondary}}/>
+        </Stack>
+      </Grid>
+
+      {/*Footer Links*/}
+      <Grid item xs={12} sm={6} md={8}>
+        <FooterLinks/>
+      </Grid>
+    </Grid>
+  )
+}
+
 function FooterLinks() {
   const footerLinks = [
     ['Product', 'Download', 'Nitro', 'Status'],
@@ -166,18 +155,28 @@ function FooterLinks() {
       justifyContent="space-between"
       alignItems='flex-start'
       spacing={{
-        'xs': 6
+        'xs': 6,
+        'sm': 3,
+        'md': 6
       }}
     >
       {
         footerLinks.map((e, i) => (
           <Grid
-            key={i}
             item
-            md={3}
+            key={i}
             xs={6}
+            md={3}
           >
-            <LinkStack links={e}/>
+            <Stack
+              direction="column"
+              alignItems='flex-start'
+              spacing={{
+                'xs': 1.5
+              }}
+            >
+              <LinkStack links={e}/>
+            </Stack>
           </Grid>
         ))
       }
@@ -185,4 +184,21 @@ function FooterLinks() {
   )
 }
 
-export default Footer;
+function BottomHalf() {
+  return (
+    <Stack
+      direction="row"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+
+      {/*Discord Logo*/}
+      <DiscordLogoWithName/>
+
+      {/*Sign Up Button*/}
+      <DiscordButton variant='blue'>
+        Sign Up
+      </DiscordButton>
+    </Stack>
+  )
+}
