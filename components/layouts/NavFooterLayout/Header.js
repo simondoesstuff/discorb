@@ -1,9 +1,11 @@
-import React from 'react';
-import {Box, Button, Container, Link, Stack, Typography, useMediaQuery} from "@mui/material";
+import React, {useState} from 'react';
+import {Box, Button, Container, Divider, Drawer, Link, Stack, Typography, useMediaQuery} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import {DiscordLogoWithName} from "@/components/DiscordLogo";
 import DiscordButton from "@/components/DiscordButton";
 import NextLink from 'next/link'
+import DownloadIcon from "@mui/icons-material/Download";
 
 // todo looks terrible on error404 page
 function Header() {
@@ -59,7 +61,7 @@ function Header() {
           )
         }
 
-        <Box>
+        <div>
           {/*Login Button*/}
           <LoginButton/>
 
@@ -69,7 +71,7 @@ function Header() {
           {onSmallScreen && (
             <MenuButton/>
           )}
-        </Box>
+        </div>
       </Stack>
     </Container>
   )
@@ -84,15 +86,88 @@ function LoginButton() {
 }
 
 function MenuButton() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Button>
-      <MenuIcon
-        fontSize="large"
+    <>
+      <Button>
+        <MenuIcon
+          fontSize="large"
+          onClick={() => setOpen(!open)}
+          sx={{
+            color: theme => theme.discordPalette.white
+          }}
+        />
+      </Button>
+
+      <Drawer
+        anchor='right'
+        open={open}
+        onClose={() => setOpen(false)}
+      >
+        <DrawerMenu/>
+      </Drawer>
+    </>
+  )
+}
+
+function DrawerMenu() {
+  return (
+    <Box p={3} width={250}>
+      <Stack
+        direction="column"
+        spacing={2}
+      >
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+        >
+
+          {/*Discord Logo*/}
+          <DiscordLogoWithName black/>
+
+          {/*Close Button*/}
+          <Button>
+            <CloseIcon fontSize='medium' color={'secondary'}/>
+          </Button>
+        </Stack>
+
+        {/*Divider*/}
+        <Divider sx={{borderColor: '#ebedef'}}/>
+
+        {/*Menu Links*/}
+        {
+          ['Home', 'Download', 'Nitro', 'Safety', 'Mod Academy', 'Support', 'Blog', 'Careers']
+            .map((e, i) => (
+              <Link
+                key={i}
+                color={theme => theme.palette.text.primary}
+                underline='hover'
+              >
+                <Typography>
+                  {e}
+                </Typography>
+              </Link>
+            ))
+        }
+      </Stack>
+
+      {/*Bottom Download Button*/}
+      <Box
         sx={{
-          color: theme => theme.discordPalette.white
+          position: 'fixed',
+          margin: '1.5rem',
+          bottom: 0
         }}
-      />
-    </Button>
+      >
+        <DiscordButton variant='blue'>
+          <DownloadIcon sx={{marginRight: 1}}/>
+          <Typography variant='subtitle2'>
+            Download for Windows
+          </Typography>
+        </DiscordButton>
+      </Box>
+    </Box>
   )
 }
 
