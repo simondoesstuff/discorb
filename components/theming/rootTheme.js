@@ -111,7 +111,8 @@ hooking into all font sizes
 theme = createTheme(theme, {
   typography: {
     h1: {
-      fontSize: 'clamp(2.625rem, 1.2857rem + 3.5714vw, 4rem)'
+      fontSize: '3.5rem'
+      // fontSize: 'clamp(2.625rem, 1.2857rem + 3.5714vw, 4rem)'
     },
     h2: {
       fontSize: '3rem'
