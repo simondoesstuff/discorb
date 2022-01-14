@@ -1,23 +1,16 @@
 import React from 'react';
 import HomeHeadlineShowcase from "@/components/pageHeadlineShowcases/HomeHeadlineShowcase";
 import FeatureCard from "@/components/componentsByPage/home/FeatureCard";
-import {Box, Container, Stack, Typography} from "@mui/material";
-import DiscordButton from "@/components/DiscordButton";
-import DownloadIcon from "@mui/icons-material/Download";
-import Image from 'next/image';
 
 import svgInviteOnlyPlace from "@/public/pageAssets/homePage/featureCardSvgs/inviteOnlyPlace.svg";
 import svgHangOutEasy from "@/public/pageAssets/homePage/featureCardSvgs/hangOutEasy.svg";
 import svgFewToFandom from "@/public/pageAssets/homePage/featureCardSvgs/fewToFandom.svg";
-import svgReliableTech from "@/public/pageAssets/homePage/reliableTech.svg";
-import svgSparkles from "@/public/pageAssets/homePage/sparkles.svg";
 import ReliableTechSection from "@/components/componentsByPage/home/ReliableTechSection";
+import DiscordDefaultLayout from "@/components/layouts/NavFooterLayout/DiscordDefaultLayout";
 
-function HomePage(props) {
+function HomePage() {
   return (
     <>
-      <HomeHeadlineShowcase/>
-
       {/*   Feature Section - 3 cards + "Reliable Tech" section   */}
 
       <FeatureCard
@@ -49,5 +42,16 @@ function HomePage(props) {
     </>
   );
 }
+
+HomePage.getLayout = (page) => (
+  <DiscordDefaultLayout
+    bannerColor='#404eed'
+    headerChildren={
+      <HomeHeadlineShowcase/>
+    }
+  >
+    {page}
+  </DiscordDefaultLayout>
+)
 
 export default HomePage;
