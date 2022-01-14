@@ -91,12 +91,16 @@ function DrawerButton() {
   return (
     <>
       {/*Menu Stack Button*/}
-      <Button>
+      <Button
+        sx={{
+          m: '0 -1.15rem 0 0'
+        }}
+      >
         <MenuIcon
           fontSize="large"
           onClick={() => setOpen(!open)}
           sx={{
-            color: theme => theme.discordPalette.white
+            color: theme => theme.discordPalette.white,
           }}
         />
       </Button>
