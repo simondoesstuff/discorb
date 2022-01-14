@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeHeadlineShowcase from "@/components/pageHeadlineShowcases/HomeHeadlineShowcase";
+import HeadlineLayout from "@/components/componentsByPage/home/HeadlineLayout";
 import FeatureCard from "@/components/componentsByPage/home/FeatureCard";
 
 import svgInviteOnlyPlace from "@/public/pageAssets/homePage/featureCardSvgs/inviteOnlyPlace.svg";
@@ -47,7 +47,7 @@ HomePage.getLayout = (page) => (
   <DiscordDefaultLayout
     bannerColor='#404eed'
     headerChildren={
-      <HomeHeadlineShowcase/>
+      <HeadlineLayout/>
     }
   >
     {page}

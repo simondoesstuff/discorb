@@ -32,7 +32,7 @@ component that takes in the components
 for the headline & banner 'hero's.
  */
 
-function HomeHeadlineShowcase() {
+function HeadlineLayout() {
   const onSmallMediumScreen = useMediaQuery((theme => theme.breakpoints.down('md')));
   const onSmallScreen = useMediaQuery((theme => theme.breakpoints.down('sm')));
 
@@ -231,4 +231,4 @@ function Banner() {
   )
 }
 
-export default HomeHeadlineShowcase;
+export default HeadlineLayout;
