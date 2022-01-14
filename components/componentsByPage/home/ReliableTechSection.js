@@ -99,7 +99,8 @@ function SparkleDownload() {
       <DiscordButton
         variant='blue'
         sx={{
-          marginTop: 5
+          marginTop: 5,
+          p: '0.5rem 1.5rem'
         }}
       >
         <DownloadIcon sx={{marginRight: 1}}/>
