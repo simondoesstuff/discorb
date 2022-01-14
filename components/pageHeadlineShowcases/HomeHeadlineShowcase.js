@@ -32,39 +32,32 @@ component that takes in the components
 for the headline & banner 'hero's.
  */
 
-function HomeHeadlineShowcase(props) {
+function HomeHeadlineShowcase() {
   const onSmallMediumScreen = useMediaQuery((theme => theme.breakpoints.down('md')));
-  const onTinyScreen = useMediaQuery((theme => theme.breakpoints.down('sm')));
+  const onSmallScreen = useMediaQuery((theme => theme.breakpoints.down('sm')));
 
-  let textAlign, shouldCompressButtons, shouldShrinkText;
-  let containerMargin, containerPadding, containerWidth;
-  let bottomMargin;
+  let textAlign, containerMargin, containerPadding, containerWidth;
+  let bottomMargin = '3rem';
+  let shouldShrinkText = false;
+  let shouldCompressButtons = false;
 
-  if (onSmallMediumScreen) {
-    textAlign = "left";
-    shouldCompressButtons = true;
-
-    containerWidth = 'sm';
-    containerMargin = '3rem 2rem';
-    containerPadding = '0 7rem 0 0';
-
-    bottomMargin = '0rem';  // todo remove?
-  } else {
-    // (onBigScreen)
+  if (!onSmallMediumScreen) { // (onBigScreen and above)
     textAlign = "center";
-    shouldCompressButtons = false;
-
     containerWidth = 'md';
     containerMargin = '7.5rem auto';
     containerPadding = '0 6rem';
 
-    bottomMargin = null; // default margin
+  } else {  // (onSmallMediumScreen and below)
+    shouldCompressButtons = true;
+    textAlign = "left";
+    containerWidth = 'xs';
+    containerMargin = '3rem 0';
+    containerPadding = '0 2rem';
   }
 
-  if (onTinyScreen) {
+  if (onSmallScreen) {  // (onSmallScreen and below)
+    bottomMargin = '14rem';
     shouldShrinkText = true;
-  } else {
-    shouldShrinkText = false;
   }
 
   return (
@@ -72,7 +65,7 @@ function HomeHeadlineShowcase(props) {
       p: `0 0 ${bottomMargin} 0`
     }}>
       {/*Banner*/}
-      <Banner/>
+      {/*<Banner/>*/}
 
       <Container
         maxWidth={containerWidth}
@@ -133,44 +126,46 @@ function HeadlineAndDescription({align, smallText}) {
   )
 }
 
-// todo button sizes are off. maybe put them inside containers (in <DiscordButton> file)?
 function Buttons({compress}) {
-  let direction, containerWidth, containerPadding;
-
-  if (compress) {
-    direction = 'column';
-    containerWidth = 'sm';
-    containerPadding = '0 0 0 0';    // todo with mobile responsive buttons, is this still necessary?
-  } else {
-    // (not compress)
-    direction = 'row';
-    containerWidth = 'lg';
-    containerPadding = null;  // default padding
-  }
+  let direction = compress ? 'column' : 'row';
 
   return (
-    <Container maxWidth={containerWidth} sx={{p: containerPadding}}>
-      <Stack
-        direction={direction}
-        justifyContent={'center'}
-        spacing={3}
-      >
-        {/*Download for Windows Button*/}
-        <DiscordButton variant='white'>
-          <DownloadIcon sx={{marginRight: 1}}/>
-          <Typography variant='h6'>
-            Download for Windows
-          </Typography>
-        </DiscordButton>
+    <Stack
+      direction={direction}
+      justifyContent={'center'}
+      spacing={3}
+    >
 
-        {/*Open in Browser Button*/}
-        <DiscordButton variant='black'>
-          <Typography variant='h6'>
-            Open Discord in your browser
-          </Typography>
-        </DiscordButton>
-      </Stack>
-    </Container>
+      {/*Download for Windows Button*/}
+      <DiscordButton
+        variant='white'
+        sx={{
+          p: '0.5rem 1.5rem'
+        }}
+      >
+        <DownloadIcon
+          sx={{
+            marginRight: 1,
+          }}
+        />
+        <Typography variant='h6'>
+          Download for Windows
+        </Typography>
+      </DiscordButton>
+
+
+      {/*Open in Browser Button*/}
+      <DiscordButton
+        variant='black'
+        sx={{
+          p: '0.5rem 1.5rem'
+        }}
+      >
+        <Typography variant='h6'>
+          Open Discord in your browser
+        </Typography>
+      </DiscordButton>
+    </Stack>
   )
 }
 
@@ -179,8 +174,7 @@ function Banner() {
   return (
     <>
       <Box
-        sx={{
-        }}
+        sx={{}}
       >
         <Box
           sx={{
