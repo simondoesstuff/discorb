@@ -1,42 +1,45 @@
 import React from 'react';
-import {Button, useTheme} from "@mui/material";
+import {Box, Button, useTheme} from "@mui/material";
 
 function sxFrom(theme, variant) {
   function specificSx() {
     switch (variant) {
-      case 'white': return (
-        {
-          color: theme.discordPalette.black,
-          backgroundColor: theme.discordPalette.white,
-
-          '&:hover': {
-            color: theme.discordPalette.brand,
+      case 'white':
+        return (
+          {
+            color: theme.discordPalette.black,
             backgroundColor: theme.discordPalette.white,
-          },
-        }
-      )
 
-      case 'black': return (
-        {
-          color: theme.discordPalette.white,
-          backgroundColor: theme.discordPalette.gray,
+            '&:hover': {
+              color: theme.discordPalette.brand,
+              backgroundColor: theme.discordPalette.white,
+            },
+          }
+        )
 
-          '&:hover': {
-            backgroundColor: theme.discordPalette.lighterGray,
-          },
-        }
-      )
+      case 'black':
+        return (
+          {
+            color: theme.discordPalette.white,
+            backgroundColor: theme.discordPalette.gray,
 
-      case 'blue': return (
-        {
-          color: theme.discordPalette.white,
-          backgroundColor: theme.discordPalette.brand,
+            '&:hover': {
+              backgroundColor: theme.discordPalette.lighterGray,
+            },
+          }
+        )
 
-          '&:hover': {
-            backgroundColor: theme.discordPalette.lighterBrand,
-          },
-        }
-      )
+      case 'blue':
+        return (
+          {
+            color: theme.discordPalette.white,
+            backgroundColor: theme.discordPalette.brand,
+
+            '&:hover': {
+              backgroundColor: theme.discordPalette.lighterBrand,
+            },
+          }
+        )
     }
   }
 
@@ -65,33 +68,51 @@ function sxFrom(theme, variant) {
 }
 
 /**
+ * @param children
+ * @param sx
  * @param variant
  *  Support variants: 'black', 'white', 'blue'
+ * @param maxWidth
+ * Specify the button maximum width. Not specifying
+ * will result in a shrunken button. Specifying 0
+ * or a negative number will result in an infinitely
+ * long button.
  */
 function DiscordButton({
                          children,
                          sx,
-                         variant
+                         variant,
+                         maxWidth
                        }) {
 
   const theme = useTheme();
 
+  const forceExpansion = maxWidth !== null && maxWidth <= 0;
+
   return (
-    <Button
-      variant='contained'
-      disableRipple
-      disableElevation
-      elevation={0}
-
-      sx={[
-        ...sxFrom(theme, variant),
-
-        // You cannot spread `sx` directly because `SxProps` (typeof sx) can be an array.
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
+    <Box  // for 'maxWidth' prop
+      sx={{
+        display: 'initial',
+        maxWidth: maxWidth ? maxWidth : null
+      }}
     >
-      {children}
-    </Button>
+      <Button
+        variant='contained'
+        disableRipple
+        disableElevation
+        elevation={0}
+        fullWidth={(maxWidth || forceExpansion ? true : null)}
+
+        sx={[
+          ...sxFrom(theme, variant),
+
+          // You cannot spread `sx` directly because `SxProps` (typeof sx) can be an array.
+          ...(Array.isArray(sx) ? sx : [sx]),
+        ]}
+      >
+        {children}
+      </Button>
+    </Box>
   );
 }
 
