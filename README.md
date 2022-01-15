@@ -2,7 +2,7 @@
 Fully responsive. Features all graphics from the original site.
 A showcase of web development; the website is non-functional. Currently, only includes the home page.
 
-Built with NextJS and [Material-UI](###Material-UI) in roughly three weeks to improve at web development.
+Built with NextJS and Material-UI in roughly three weeks to improve at web development.
 
 ## See for yourself! [Discorb](https://discorb.simonwalker.tech)
 
@@ -30,11 +30,11 @@ Discor*b* is hosted with [vercel](https://vercel.com/).
 Discor*b* uses [Material-UI](https://mui.com/). A react component library based on the principles of material design (invented by Google).
 MUI helps you follow these principles which normally makes their resulting apps conform, but it can be heavily customized as demoed here.
 Fonts are imported directly from CSS. The discord color palette and other various design choices [override](components/theming/rootTheme.js) the MUI defaults.
-MUI depends on EmotionCSS, a CSS in JS library.
+MUI depends on EmotionJS, a CSS in JS library.
 
-### EmotionCSS
+### EmotionJS
 
-Material-UI is based on [EmotionCSS](https://emotion.sh/). Emotion is a **CSS in JS** library designed for writing css styles with JavaScript.
+Material-UI is based on [EmotionJS](https://emotion.sh/). Emotion is a **CSS in JS** library designed for writing css styles with JavaScript.
 
 ## Review
 
