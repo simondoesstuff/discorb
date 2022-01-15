@@ -22,17 +22,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 
 */
 
-/*
-todo embed this into a dynamic layout
-and get access to the nav bar
-to include in the banner box.
-
-will probably have to make a special
-component that takes in the components
-for the headline & banner 'hero's.
- */
-
-function HeadlineLayout() {
+export default function HeadlineText() {
   const onSmallMediumScreen = useMediaQuery((theme => theme.breakpoints.down('md')));
   const onSmallScreen = useMediaQuery((theme => theme.breakpoints.down('sm')));
 
@@ -56,17 +46,16 @@ function HeadlineLayout() {
   }
 
   if (onSmallScreen) {  // (onSmallScreen and below)
-    bottomMargin = '14rem';
+    bottomMargin = '15rem';
     shouldShrinkText = true;
   }
 
   return (
     <Box sx={{
+      zIndex: 1,
+      position: 'relative',
       p: `0 0 ${bottomMargin} 0`
     }}>
-      {/*Banner*/}
-      {/*<Banner/>*/}
-
       <Container
         maxWidth={containerWidth}
         sx={{
@@ -168,67 +157,3 @@ function Buttons({compress}) {
     </Stack>
   )
 }
-
-// todo banner still not working
-function Banner() {
-  return (
-    <>
-      <Box
-        sx={{}}
-      >
-        <Box
-          sx={{
-            zIndex: -1,
-            position: 'absolute',
-            top: 0,
-            width: '100%',
-            height: '750px',
-            bgcolor: '#404eed',
-          }}
-        >
-
-          {/*Wave Foreground*/}
-          {/*<Image*/}
-          {/*  src={waveForeground}*/}
-          {/*  layout='fixed'*/}
-          {/*  sx={{*/}
-          {/*    display: 'block',*/}
-          {/*    position: 'absolute',*/}
-          {/*    left: '50%'*/}
-          {/*  }}*/}
-          {/*/>*/}
-
-          {/*Left Shoe*/}
-          {/*<Image*/}
-          {/*  src={leftShoe}*/}
-          {/*  layout='fixed'*/}
-          {/*  sx={{*/}
-          {/*    display: 'inline',*/}
-          {/*    position: 'absolute',*/}
-          {/*    left: '50%',*/}
-          {/*    bottom: 0,*/}
-          {/*    width: 'auto',*/}
-          {/*    height: 'auto'*/}
-          {/*  }}*/}
-          {/*/>*/}
-
-          {/*Right Party*/}
-          {/*<Image*/}
-          {/*  src={rightParty}*/}
-          {/*  layout='fixed'*/}
-          {/*  sx={{*/}
-          {/*    display: 'inline',*/}
-          {/*    position: 'absolute',*/}
-          {/*    left: '50%',*/}
-          {/*    bottom: 0,*/}
-          {/*    width: 'auto',*/}
-          {/*    height: 'auto'*/}
-          {/*  }}*/}
-          {/*/>*/}
-        </Box>
-      </Box>
-    </>
-  )
-}
-
-export default HeadlineLayout;

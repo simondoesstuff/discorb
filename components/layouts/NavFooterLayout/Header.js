@@ -7,12 +7,13 @@ import DiscordButton from "@/components/DiscordButton";
 import NextLink from 'next/link'
 import DownloadIcon from "@mui/icons-material/Download";
 
-// todo looks terrible on error404 page
 function Header() {
   const onSmallScreen = useMediaQuery((theme => theme.breakpoints.down('md')));
 
   return (
     <Container sx={{
+      zIndex: 100,
+      position: 'relative',
       p: '1.5rem',
     }}
     >

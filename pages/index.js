@@ -1,5 +1,5 @@
 import React from 'react';
-import HeadlineLayout from "@/components/componentsByPage/home/HeadlineLayout";
+import HeadlineText from "@/components/componentsByPage/home/HeadlineText";
 import FeatureCard from "@/components/componentsByPage/home/FeatureCard";
 
 import svgInviteOnlyPlace from "@/public/pageAssets/homePage/featureCardSvgs/inviteOnlyPlace.svg";
@@ -7,6 +7,7 @@ import svgHangOutEasy from "@/public/pageAssets/homePage/featureCardSvgs/hangOut
 import svgFewToFandom from "@/public/pageAssets/homePage/featureCardSvgs/fewToFandom.svg";
 import ReliableTechSection from "@/components/componentsByPage/home/ReliableTechSection";
 import DiscordDefaultLayout from "@/components/layouts/NavFooterLayout/DiscordDefaultLayout";
+import HeroBanner from "@/components/componentsByPage/home/HeroBanner";
 
 function HomePage() {
   return (
@@ -47,7 +48,10 @@ HomePage.getLayout = (page) => (
   <DiscordDefaultLayout
     bannerColor='#404eed'
     headerChildren={
-      <HeadlineLayout/>
+      <>
+        <HeadlineText/>
+        <HeroBanner/>
+      </>
     }
   >
     {page}
