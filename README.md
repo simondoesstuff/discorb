@@ -1,4 +1,4 @@
-Discor*b* is a [Discord](https://discord.com) website clone.
+[Discor*b*](https://discorb.simonwalker.tech) is a [Discord](https://discord.com) website clone.
 Fully responsive. Features all graphics from the original site.
 A showcase of web development; the website is non-functional. Currently, only includes the home page.
 
@@ -10,11 +10,11 @@ Built with NextJS and [Material-UI](###Material-UI) in roughly three weeks to im
 
 ### Discor*b*
 
-![Alt Text](githubDemo/discorbDemo.gif)
+![DiscorbDemo](githubDemo/discorbDemo.gif)
 
 ### Discord
 
-![Alt Text](githubDemo/discordDemo.gif)
+![DiscordDemo](githubDemo/discordDemo.gif)
 
 They look pretty close. But Look carefully at the logo.
 
@@ -23,6 +23,7 @@ Who did it better?
 # Development
 
 Discor*b* is a react-based website using Material-UI and NextJS for server-side rendering.
+Discor*b* is hosted with [vercel](https://vercel.com/).
 
 ### Material-UI
 
