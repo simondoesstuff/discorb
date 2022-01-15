@@ -4,7 +4,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import {DiscordLogoWithName} from "@/components/DiscordLogo";
 import DiscordButton from "@/components/DiscordButton";
-import NextLink from 'next/link'
 import DownloadIcon from "@mui/icons-material/Download";
 
 function Header() {
@@ -39,23 +38,18 @@ function Header() {
                 // the values in this array refer to page routes
                 ['Download', 'Nitro', 'Safety', 'Support', 'Blog', 'Careers']
                   .map((e, i) => (
-                    <NextLink
+                    <Link
                       key={i}
-                      href={`/${e}`}
-                      passHref
+                      color={theme => theme.palette.text.secondary}
+                      underline='hover'
                     >
-                      <Link
-                        color={theme => theme.palette.text.secondary}
-                        underline='hover'
+                      <Typography
+                        variant={'subtitle1'}
+                        fontWeight={600}
                       >
-                        <Typography
-                          variant={'subtitle1'}
-                          fontWeight={600}
-                        >
-                          {e}
-                        </Typography>
-                      </Link>
-                    </NextLink>
+                        {e}
+                      </Typography>
+                    </Link>
                   ))
               }
             </Stack>
