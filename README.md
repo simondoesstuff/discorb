@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Discor*b* is a [Discord](https://discord.com) website clone.
+Fully responsive. Features all graphics from the original site.
+A showcase of web development; the website is non-functional. Currently, only includes the home page.
 
-## Getting Started
+Built with NextJS and [Material-UI](###Material-UI) in roughly three weeks to improve at web development.
 
-First, run the development server:
+## See for yourself! [Discorb](https://discorb.simonwalker.tech)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# Discor*b* vs Discord
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Discor*b*
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![Alt Text](githubDemo/discorbDemo.gif)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Discord
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![Alt Text](githubDemo/discordDemo.gif)
 
-## Learn More
+They look pretty close. But Look carefully at the logo.
 
-To learn more about Next.js, take a look at the following resources:
+Who did it better?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Discor*b* is a react-based website using Material-UI and NextJS for server-side rendering.
 
-## Deploy on Vercel
+### Material-UI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Discor*b* uses [Material-UI](https://mui.com/). A react component library based on the principles of material design (invented by Google).
+MUI helps you follow these principles which normally makes their resulting apps conform, but it can be heavily customized as demoed here.
+Fonts are imported directly from CSS. The discord color palette and other various design choices [override](components/theming/rootTheme.js) the MUI defaults.
+MUI depends on EmotionCSS, a CSS in JS library.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### EmotionCSS
+
+Material-UI is based on [EmotionCSS](https://emotion.sh/). Emotion is a **CSS in JS** library designed for writing css styles with JavaScript.
+
+## Review
+
+I found CSS in JS to be very ergonomic. Keeping everything in the JSX is definitely convenient.
+There are some concerns about the performance with CSS in JS. I not only found
+the loading times to be instantaneous, Discor*b* actually loads faster than Discord.
+
+Overall, I went from basic experience in react, html, and css to understanding and using Material-UI
+and NextJS to make Discor*b* in roughly three total weeks. Speaks to the power of Material-UI.
+My experience with web development so far has been a good one.
