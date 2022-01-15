@@ -4,7 +4,7 @@ A showcase of web development; the website is non-functional. Currently, only in
 
 Built with NextJS and Material-UI in roughly three weeks to improve at web development.
 
-## See for yourself! [Discorb](https://discorb.simonwalker.tech)
+## See for yourself! [Discor*b*](https://discorb.simonwalker.tech)
 
 # Discor*b* vs Discord
 
