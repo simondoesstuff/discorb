@@ -4,7 +4,7 @@ import DiscordHeader from "@/components/layouts/NavFooterLayout/Header";
 import {Box} from "@mui/material";
 
 function DiscordDefaultLayout({
-                              bannerColor = (theme => theme.discordPalette.brand),
+                              bannerColor = (theme => theme.discordPalette.gray),
                               headerChildren, // holds the page's banner
                               children // the page
                             }) {
