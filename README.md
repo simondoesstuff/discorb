@@ -16,7 +16,7 @@ Built with NextJS and Material-UI in roughly three weeks to improve at web devel
 
 ![DiscordDemo](githubDemo/discordDemo.gif)
 
-They look pretty close. But Look carefully at the logo.
+They look pretty close. But look carefully at the logo.
 
 Who did it better?
 
